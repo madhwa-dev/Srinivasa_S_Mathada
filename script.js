@@ -1,47 +1,62 @@
-const books = [
-  {
-    title: "Bharatiya Samskritiyalli Govu",
-    file: "Bharatiya Samskritiyalli Govu - Srinivas S Mathad.pdf",
-    thumbnail: "books/thumbs/govu.png"
-  },
-  {
-    title: "Sri Anubhashya Sarasangraha",
-    file: "Sri Anubhashya Sarasangraha - Srinivasa S. Mathada.pdf",
-    thumbnail: "books/thumbs/anubhashya.png"
-  },
-  {
-    title: "Sri Veda Vyasa Stotra Manjari",
-    file: "Sri Veda Vyasa Stotra Manjari - Srinivasa S. Mathada.pdf",
-    thumbnail: "books/thumbs/vedavyasa.png"
-  }
-];
+let books = [];
+const booksPerPage = 12;
+let currentPage = 1;
 
 const searchBox = document.getElementById("searchBox");
 const bookList = document.getElementById("bookList");
 
-function displayBooks(filter = "") {
-  bookList.innerHTML = "";
-  const lowerFilter = filter.toLowerCase();
-
-  books
-    .filter(book => book.title.toLowerCase().includes(lowerFilter))
-    .forEach(book => {
-      const card = document.createElement("div");
-      card.className = "book-card";
-      card.innerHTML = `
-        <img src="${book.thumbnail}" alt="${book.title} thumbnail" />
-        <h3>${book.title}</h3>
-        <a href="books/${book.file}" target="_blank">📄 View</a> |
-        <a href="books/${book.file}" download>⬇️ Download</a>
-      `;
-      bookList.appendChild(card);
-    });
+async function loadBooks() {
+  const res = await fetch("books.json");
+  books = await res.json();
+  displayBooks();
 }
 
-searchBox.addEventListener("input", e => {
-  displayBooks(e.target.value);
+function displayBooks(filter = "") {
+  const lowerFilter = filter.toLowerCase();
+  const filteredBooks = books.filter(book => book.title.toLowerCase().includes(lowerFilter));
+
+  const totalPages = Math.ceil(filteredBooks.length / booksPerPage);
+  const start = (currentPage - 1) * booksPerPage;
+  const paginatedBooks = filteredBooks.slice(start, start + booksPerPage);
+
+  bookList.innerHTML = "";
+
+  paginatedBooks.forEach(book => {
+    const card = document.createElement("div");
+    card.className = "book-card";
+    card.innerHTML = `
+      <img src="${book.thumbnail}" alt="${book.title} thumbnail" />
+      <h3>${book.title}</h3>
+      <a href="books/${book.file}" target="_blank">📄 View</a> |
+      <a href="books/${book.file}" download>⬇️ Download</a>
+    `;
+    bookList.appendChild(card);
+  });
+
+  renderPagination(totalPages, filter);
+}
+
+function renderPagination(totalPages, filter) {
+  const pagination = document.createElement("div");
+  pagination.className = "pagination";
+
+  for (let i = 1; i <= totalPages; i++) {
+    const btn = document.createElement("button");
+    btn.textContent = i;
+    if (i === currentPage) btn.classList.add("active");
+    btn.onclick = () => {
+      currentPage = i;
+      displayBooks(filter);
+    };
+    pagination.appendChild(btn);
+  }
+
+  bookList.appendChild(pagination);
+}
+
+searchBox.addEventListener("input", () => {
+  currentPage = 1;
+  displayBooks(searchBox.value);
 });
 
-window.onload = () => {
-  displayBooks();
-};
+loadBooks();

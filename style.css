@@ -121,20 +121,23 @@ footer {
 }
 
 .pagination {
-  text-align: center;
-  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  justify-content: center;
+  padding: 1rem 0;
+  gap: 0.5rem;
 }
 
 .pagination button {
   background: #e0b084;
   border: 1px solid #a67c52;
   color: #4b1f0f;
-  margin: 0 4px;
-  padding: 4px 10px;
+  padding: 6px 12px;
   border-radius: 4px;
-  cursor: pointer;
   font-size: 0.9rem;
-  font-weight: bold;
+  white-space: nowrap;
+  cursor: pointer;
   transition: background-color 0.3s;
 }
 

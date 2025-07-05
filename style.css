@@ -1,37 +1,106 @@
 body {
-  font-family: sans-serif;
   margin: 0;
-  padding: 0;
-  background: #f2f2f2;
+  font-family: 'Kaisei Decol', serif;
+  background: url('https://www.transparenttextures.com/patterns/beige-paper.png');
+  background-color: #fdfaf4;
+  color: #4b2e2e;
 }
-.container {
-  max-width: 600px;
-  margin: auto;
+
+header {
+  background-color: #e0b084;
   padding: 1rem;
+  border-bottom: 5px double #5b3714;
+  text-align: center;
 }
-input {
-  width: 100%;
-  padding: 10px;
-  margin: 1rem 0;
-  font-size: 1rem;
+
+.branding h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  color: #4b1f0f;
 }
-ul {
+
+nav ul {
+  display: flex;
+  justify-content: center;
   list-style: none;
   padding: 0;
+  margin-top: 0.5rem;
 }
-li {
-  background: white;
-  margin-bottom: 10px;
-  padding: 10px;
-  border-radius: 5px;
+
+nav ul li {
+  margin: 0 1rem;
 }
-a {
+
+nav a {
   text-decoration: none;
-  color: #007bff;
-  margin-right: 10px;
+  color: #4b1f0f;
+  font-weight: bold;
+  transition: color 0.3s;
 }
-@media screen and (max-width: 600px) {
-  body {
-    font-size: 16px;
-  }
+
+nav a:hover {
+  color: #a1401d;
+}
+
+main {
+  padding: 2rem;
+}
+
+section {
+  margin-bottom: 2rem;
+}
+
+#searchBox {
+  padding: 10px;
+  font-size: 1rem;
+  width: 100%;
+  max-width: 400px;
+  display: block;
+  margin: 1rem auto;
+  border: 2px solid #a67c52;
+  border-radius: 8px;
+}
+
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+.book-card {
+  background: #fff9f0;
+  border: 3px ridge #a67c52;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.book-card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+}
+
+.book-card h3 {
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+  color: #4b2e2e;
+}
+
+.book-card a {
+  text-decoration: none;
+  color: #a1401d;
+  font-weight: bold;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: #e0b084;
+  border-top: 5px double #5b3714;
+  color: #4b1f0f;
+  font-size: 0.9rem;
 }

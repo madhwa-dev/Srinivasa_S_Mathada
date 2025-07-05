@@ -1,11 +1,10 @@
 let books = [];
-const booksPerPage = 12;
+const booksPerPage = 5;
 let currentPage = 1;
 
 const searchBox = document.getElementById("searchBox");
 const bookList = document.getElementById("bookList");
 
-// Fetch books.json and initialize
 async function loadBooks() {
   try {
     const res = await fetch("books.json");
@@ -16,7 +15,6 @@ async function loadBooks() {
   }
 }
 
-// Render books for current page and filter
 function displayBooks(filter = "") {
   const lowerFilter = filter.toLowerCase();
   const filteredBooks = books.filter(book =>
@@ -44,7 +42,6 @@ function displayBooks(filter = "") {
   renderPagination(totalPages, filter);
 }
 
-// Pagination buttons
 function renderPagination(totalPages, filter) {
   const pagination = document.createElement("div");
   pagination.className = "pagination";
@@ -66,11 +63,9 @@ function renderPagination(totalPages, filter) {
   bookList.appendChild(pagination);
 }
 
-// Search box handler
 searchBox.addEventListener("input", e => {
   currentPage = 1;
   displayBooks(e.target.value);
 });
 
-// Initial load
 loadBooks();

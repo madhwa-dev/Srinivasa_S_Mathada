@@ -3,15 +3,40 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Book Archive</title>
+  <title>Srinivasa S Mathada Books</title>
   <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Kaisei+Decol&display=swap" rel="stylesheet">
+  <script src="script.js" defer></script>
 </head>
 <body>
-  <div class="container">
-    <h1>📚 My Book Library</h1>
-    <input type="text" id="searchBox" placeholder="Search for a book..." />
-    <ul id="bookList"></ul>
-  </div>
-  <script src="script.js"></script>
+  <header>
+    <div class="branding">
+      <h1>ओं खमा जगते नमहा: <br> Srinivasa S Mathada</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#books">Books</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="about">
+      <h2>About</h2>
+      <p>A humble digital archive of Hindu philosophical works and spiritual literature curated by Srinivasa S Mathada.</p>
+    </section>
+
+    <section id="books">
+      <h2>Books</h2>
+      <input type="text" id="searchBox" placeholder="Search by book title..." />
+      <div class="book-grid" id="bookList"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Srinivasa S Mathada | Jai Sri Madhva</p>
+  </footer>
 </body>
 </html>

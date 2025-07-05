@@ -5,16 +5,18 @@ let currentPage = 1;
 const searchBox = document.getElementById("searchBox");
 const bookList = document.getElementById("bookList");
 
+// Fetch books.json and initialize
 async function loadBooks() {
   try {
     const res = await fetch("books.json");
     books = await res.json();
     displayBooks();
-  } catch (e) {
-    bookList.innerHTML = "<p style='color:red;'>Failed to load books.json</p>";
+  } catch (err) {
+    bookList.innerHTML = "<p style='color:red;'>Error loading books.json</p>";
   }
 }
 
+// Render books for current page and filter
 function displayBooks(filter = "") {
   const lowerFilter = filter.toLowerCase();
   const filteredBooks = books.filter(book =>
@@ -42,27 +44,33 @@ function displayBooks(filter = "") {
   renderPagination(totalPages, filter);
 }
 
+// Pagination buttons
 function renderPagination(totalPages, filter) {
   const pagination = document.createElement("div");
   pagination.className = "pagination";
 
   for (let i = 1; i <= totalPages; i++) {
-    const btn = document.createElement("button");
-    btn.textContent = i;
-    if (i === currentPage) btn.classList.add("active");
-    btn.onclick = () => {
+    const button = document.createElement("button");
+    button.textContent = i;
+    if (i === currentPage) button.classList.add("active");
+
+    button.addEventListener("click", () => {
       currentPage = i;
       displayBooks(filter);
-    };
-    pagination.appendChild(btn);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    pagination.appendChild(button);
   }
 
   bookList.appendChild(pagination);
 }
 
-searchBox.addEventListener("input", () => {
+// Search box handler
+searchBox.addEventListener("input", e => {
   currentPage = 1;
-  displayBooks(searchBox.value);
+  displayBooks(e.target.value);
 });
 
+// Initial load
 loadBooks();

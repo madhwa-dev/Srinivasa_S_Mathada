@@ -6,14 +6,20 @@ const searchBox = document.getElementById("searchBox");
 const bookList = document.getElementById("bookList");
 
 async function loadBooks() {
-  const res = await fetch("books.json");
-  books = await res.json();
-  displayBooks();
+  try {
+    const res = await fetch("books.json");
+    books = await res.json();
+    displayBooks();
+  } catch (e) {
+    bookList.innerHTML = "<p style='color:red;'>Failed to load books.json</p>";
+  }
 }
 
 function displayBooks(filter = "") {
   const lowerFilter = filter.toLowerCase();
-  const filteredBooks = books.filter(book => book.title.toLowerCase().includes(lowerFilter));
+  const filteredBooks = books.filter(book =>
+    book.title.toLowerCase().includes(lowerFilter)
+  );
 
   const totalPages = Math.ceil(filteredBooks.length / booksPerPage);
   const start = (currentPage - 1) * booksPerPage;

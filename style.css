@@ -20,7 +20,6 @@ header {
   color: #4b1f0f;
 }
 
-/* Navigation */
 nav ul {
   display: flex;
   justify-content: center;
@@ -45,7 +44,6 @@ nav a:hover {
   color: #a1401d;
 }
 
-/* Layout */
 main {
   padding: 2rem;
 }
@@ -54,7 +52,6 @@ section {
   margin-bottom: 2rem;
 }
 
-/* Search Box */
 #searchBox {
   padding: 10px;
   font-size: 1rem;
@@ -66,52 +63,54 @@ section {
   border-radius: 8px;
 }
 
-/* Book Grid */
 .book-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
   padding: 1rem;
-  align-items: start;
+  justify-items: center;
 }
 
-/* Book Card */
 .book-card {
   background: #fff9f0;
   border: 3px ridge #a67c52;
   border-radius: 10px;
-  padding: 1rem;
+  padding: 0.5rem;
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
-  min-height: 370px; /* Prevents layout shifts */
+  min-height: 300px;
+  width: 100%;
   box-sizing: border-box;
+  font-size: 0.85rem;
 }
 
 .book-card img {
-  width: 100px;
-  height: 130px;
+  width: 80px;
+  height: 100px;
   object-fit: cover;
   border-radius: 6px;
   margin: 0 auto 0.5rem;
 }
 
 .book-card h3 {
-  font-size: 1.1rem;
-  margin: 0.5rem 0;
+  font-size: 0.95rem;
+  margin: 0.3rem 0;
   color: #4b2e2e;
 }
 
 .book-card a {
+  font-size: 0.8rem;
   text-decoration: none;
   color: #a1401d;
   font-weight: bold;
+  display: inline-block;
+  margin: 0.2rem 4px;
 }
 
-/* Footer */
 footer {
   text-align: center;
   padding: 1rem;
@@ -121,7 +120,6 @@ footer {
   font-size: 0.9rem;
 }
 
-/* Pagination */
 .pagination {
   text-align: center;
   margin-top: 1.5rem;
@@ -132,9 +130,10 @@ footer {
   border: 1px solid #a67c52;
   color: #4b1f0f;
   margin: 0 4px;
-  padding: 6px 12px;
+  padding: 4px 10px;
   border-radius: 4px;
   cursor: pointer;
+  font-size: 0.9rem;
   font-weight: bold;
   transition: background-color 0.3s;
 }

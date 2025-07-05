@@ -1,3 +1,4 @@
+/* Global Styles */
 body {
   margin: 0;
   font-family: 'Kaisei Decol', serif;
@@ -19,6 +20,7 @@ header {
   color: #4b1f0f;
 }
 
+/* Navigation */
 nav ul {
   display: flex;
   justify-content: center;
@@ -43,6 +45,7 @@ nav a:hover {
   color: #a1401d;
 }
 
+/* Layout */
 main {
   padding: 2rem;
 }
@@ -51,6 +54,7 @@ section {
   margin-bottom: 2rem;
 }
 
+/* Search Box */
 #searchBox {
   padding: 10px;
   font-size: 1rem;
@@ -62,6 +66,7 @@ section {
   border-radius: 8px;
 }
 
+/* Book Grid */
 .book-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -70,6 +75,7 @@ section {
   align-items: start;
 }
 
+/* Book Card */
 .book-card {
   background: #fff9f0;
   border: 3px ridge #a67c52;
@@ -81,7 +87,7 @@ section {
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
-  min-height: 370px; /* Fixed height for card */
+  min-height: 370px; /* Prevents layout shifts */
   box-sizing: border-box;
 }
 
@@ -105,6 +111,7 @@ section {
   font-weight: bold;
 }
 
+/* Footer */
 footer {
   text-align: center;
   padding: 1rem;
@@ -114,9 +121,10 @@ footer {
   font-size: 0.9rem;
 }
 
+/* Pagination */
 .pagination {
   text-align: center;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
 }
 
 .pagination button {
@@ -127,10 +135,15 @@ footer {
   padding: 6px 12px;
   border-radius: 4px;
   cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.pagination button:hover {
+  background-color: #cfa77e;
 }
 
 .pagination button.active {
   background-color: #a67c52;
   color: white;
-  font-weight: bold;
 }

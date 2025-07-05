@@ -67,7 +67,7 @@ section {
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1.5rem;
   padding: 1rem;
-  align-items: stretch;
+  align-items: start;
 }
 
 .book-card {
@@ -80,7 +80,9 @@ section {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 350px;
+  height: 100%;
+  min-height: 370px; /* Fixed height for card */
+  box-sizing: border-box;
 }
 
 .book-card img {

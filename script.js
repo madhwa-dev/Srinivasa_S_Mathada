@@ -1,8 +1,7 @@
 const books = [
-  "Book-1.pdf",
-  "Another_Book.pdf",
-  "Sample-Yoga-Manual.pdf",
-  "Advanced_Sanskrit_Texts.pdf"
+  "Bharatiya Samskritiyalli Govu - Srinivas S Mathad.pdf",
+  "Sri Anubhashya Sarasangraha - Srinivasa S. Mathada.pdf",
+  "Sri Veda Vyasa Stotra Manjari - Srinivasa S. Mathada.pdf",
 ];
 
 const searchBox = document.getElementById("searchBox");

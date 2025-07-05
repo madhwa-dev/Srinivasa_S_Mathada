@@ -2,17 +2,17 @@ const books = [
   {
     title: "Bharatiya Samskritiyalli Govu",
     file: "Bharatiya Samskritiyalli Govu - Srinivas S Mathad.pdf",
-    thumbnail: "books/thumbs/govu.jpg"
+    thumbnail: "books/thumbs/govu.png"
   },
   {
     title: "Sri Anubhashya Sarasangraha",
     file: "Sri Anubhashya Sarasangraha - Srinivasa S. Mathada.pdf",
-    thumbnail: "books/thumbs/anubhashya.jpg"
+    thumbnail: "books/thumbs/anubhashya.png"
   },
   {
     title: "Sri Veda Vyasa Stotra Manjari",
     file: "Sri Veda Vyasa Stotra Manjari - Srinivasa S. Mathada.pdf",
-    thumbnail: "books/thumbs/vedavyasa.jpg"
+    thumbnail: "books/thumbs/vedavyasa.png"
   }
 ];
 

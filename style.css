@@ -89,8 +89,8 @@ section {
 }
 
 .book-card img {
-  width: 80px;
-  height: 100px;
+  width: 100px;
+  height: 200px;
   object-fit: cover;
   border-radius: 6px;
   margin: 0 auto 0.5rem;

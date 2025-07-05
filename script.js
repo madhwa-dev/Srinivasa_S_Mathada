@@ -35,8 +35,7 @@ function displayBooks(filter = "") {
     card.innerHTML = `
       <img src="${book.thumbnail}" alt="${book.title}" />
       <h3>${book.title}</h3>
-      <a href="books/${book.file}" target="_blank">📄 View</a> |
-      <a href="books/${book.file}" download>⬇️ Download</a>
+      <a href="books/${book.file}" target="_blank">📄 View</a>|<a href="books/${book.file}" download>⬇️ Download</a>
     `;
     bookList.appendChild(card);
   });
